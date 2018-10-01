@@ -5,35 +5,35 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    title: 'my custom title',
-    links: [
-      'http://google.com',
-      'http://facebook.com',
-      'http://youtube.com'
+    title: 'Things I Have To Do:',
+    tasks: [
+      'learn vue',
+      'make an app with vue',
+      'make a task list'
     ]
   },
   getters: {
-    countLinks: state => {
-      return state.links.length
+    countTasks: state => {
+      return state.tasks.length
     }
   },
   mutations: {
-    ADD_LINK: (state, link) => {
-      state.links.push(link)
+    ADD_TASK: (state, task) => {
+      state.tasks.push(task)
     },
-    REMOVE_LINK: (state, link) => {
-      state.links.splice(link, 1)
+    REMOVE_TASK: (state, task) => {
+      state.tasks.splice(task, 1)
     },
     REMOVE_ALL: (state) => {
-      state.links = [];
+      state.tasks = [];
     }
   },
   actions: {   //good for async
-    removeLink: (context, link) => {
-      context.commit('REMOVE_LINK', link)
+    removeTask: (context, task) => {
+      context.commit('REMOVE_TASK', task)
     },
-    removeAll( {commit} ) {
-      return new Promise((resolve, reject) => {
+    removeAll( {commit} ) {  // add error handling
+      return new Promise((resolve) => {
         setTimeout(() => {
           commit('REMOVE_ALL')
           resolve()

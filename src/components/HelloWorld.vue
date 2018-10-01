@@ -2,13 +2,13 @@
   <div class="hello">
     <div class="left">
       <h1> {{ title }} </h1>
-      <form @submit.prevent="addLink">
-        <input class="link-input" type="text" placeholder="Add a Link" v-model="newLink" />
+      <form @submit.prevent="addTask">
+        <input class="task-input" type="text" placeholder="Add a Task" v-model="newTask" />
       </form>
       <ul>
-        <li v-for="(link, index) in links" v-bind:key="index">
-          {{ link }}
-          <button v-on:click="removeLinks(index)" class="rm"> Remove </button>
+        <li v-for="(task, index) in tasks" v-bind:key="index">
+          {{ task }}
+          <button v-on:click="removeTasks(index)" class="rm"> Remove </button>
         </li>
       </ul>
     </div>
@@ -26,7 +26,7 @@ export default {
   name: 'HelloWorld',
   data() {
     return {
-      newLink: ''
+      newTask: ''
     }
   },
   components: {
@@ -35,22 +35,22 @@ export default {
   computed: {
     ...mapState([
       'title',
-      'links'
+      'tasks'
     ]),
   },
   methods: {
     ...mapMutations([
-      'ADD_LINK'
+      'ADD_TASK'
     ]),
     ...mapActions([
-      'removeLink'
+      'removeTask'
     ]),
-    addLink: function() {
-      this.ADD_LINK(this.newLink)
-      this.newLink = ''
+    addTask: function() {
+      this.ADD_TASK(this.newTask)
+      this.newTask = ''
     },
-    removeLinks: function(link) {
-      this.removeLink(link)
+    removeTasks: function(task) {
+      this.removeTask(task)
     }
   }
 }

@@ -1,8 +1,8 @@
 <template>
   <div class="stats">
-    <h1> summary </h1>
-    <p> There are currently {{ countLinks }} links. </p>
-    <button v-on:click="removeAllLinks"> Remove All Links </button>
+    <h1> Overview </h1>
+    <p> There are currently {{ countTasks }} tasks. </p>
+    <button v-on:click="removeAllTasks"> Remove All Tasks </button>
     <p> {{msg}} </p>
   </div>
 </template>
@@ -19,15 +19,15 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'countLinks'
+      'countTasks'
     ]),
   },
   methods: {
     ...mapMutations(['REMOVE_ALL']),
     ...mapActions(['removeAll']),
-    removeAllLinks() {
+    removeAllTasks() {
       this.removeAll().then(() => {
-        this.msg = 'All links have been removed'
+        this.msg = 'All tasks have been removed'
       })
     }
   }
