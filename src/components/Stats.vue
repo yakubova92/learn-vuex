@@ -18,6 +18,9 @@ export default {
     }
   },
   computed: {
+    /* About mapGetters Helper
+          - mapGetters maps store getters onto local computed properties
+    */
     ...mapGetters([
       'countTasks'
     ]),
