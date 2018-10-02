@@ -56,7 +56,7 @@ export default new Vuex.Store({
           - context.getters: used to access getters
       - using dispatch, promises, and async await: https://vuex.vuejs.org/guide/actions.html
   */
-  actions: {   //good for async
+  actions: {
     removeTask: (context, task) => {
       context.commit('REMOVE_TASK', task)
     },
