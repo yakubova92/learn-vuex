@@ -132,8 +132,8 @@ export default {
   }
 
   .complete {
-      text-decoration: line-through;
-      color: #555;
+    text-decoration: line-through;
+    color: #555;
   }
 
 </style>

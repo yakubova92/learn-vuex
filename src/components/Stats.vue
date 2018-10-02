@@ -1,7 +1,9 @@
 <template>
   <div class="stats">
     <h1> Overview </h1>
-    <p> There are currently {{ countTasks }} tasks. </p>
+    <h4> complete: {{ completeCount }} </h4>
+    <h4> incomplete: {{ incompleteCount }} </h4>
+    <p> There are {{ countTasks }} tasks in total. </p>
     <button v-on:click="removeAllTasks"> Remove All Tasks </button>
     <p> {{msg}} </p>
   </div>
@@ -22,7 +24,9 @@ export default {
           - mapGetters maps store getters onto local computed properties
     */
     ...mapGetters([
-      'countTasks'
+      'completeCount',
+      'countTasks',
+      'incompleteCount'
     ]),
   },
   methods: {

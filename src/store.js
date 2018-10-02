@@ -22,6 +22,15 @@ export default new Vuex.Store({
   getters: {
     countTasks: state => {
       return state.tasks.length
+    },
+    completeCount: state => {
+      const completed = state.tasks.filter(task => {
+        if (task.complete) return task;
+      })
+      return completed.length;
+    },
+    incompleteCount: (state, getters) => {
+      return getters.countTasks - getters.completeCount;
     }
   },
   /* About Mutations
