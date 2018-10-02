@@ -37,14 +37,21 @@ export default new Vuex.Store({
       - mutations must by synchronous
   */
   mutations: {
-    ADD_TASK: (state, task) => {
-      state.tasks.push(task)
+    ADD_TASK: (state, taskDesc) => {
+      const id = state.tasks.length + 1;
+      const newTask = {id, desc: taskDesc, complete: false}
+      state.tasks.push(newTask)
     },
-    REMOVE_TASK: (state, task) => {
-      state.tasks.splice(task, 1)
+    REMOVE_TASK: (state, payload) => {
+      const index = state.tasks.findIndex(task => task.id === payload);
+      state.tasks.splice(index, 1);
     },
     REMOVE_ALL: (state) => {
       state.tasks = [];
+    },
+    TOGGLE_COMPLETE: (state, payload) => {
+      const item = state.tasks.find(task => task.id === payload.id);
+      item.complete = !item.complete;
     }
   },
   /* About Actions
