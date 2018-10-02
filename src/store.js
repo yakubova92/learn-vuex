@@ -7,9 +7,9 @@ export default new Vuex.Store({
   state: {
     title: 'Things I Have To Do:',
     tasks: [
-      'learn vue',
-      'make an app with vue',
-      'make a task list'
+      {id: 1, desc:'learn vue', complete: false},
+      {id: 2, desc:'make an app', complete: false},
+      {id: 3, desc:'write a Read Me', complete: false}
     ]
   },
   /* About Getters
